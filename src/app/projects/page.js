@@ -1,88 +1,148 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Navbar from '@/components/Navbar';
-import { motion } from 'framer-motion';
-import Image from 'next/image'; // Optional, if you want thumbnails
+import React, { useState } from "react";
+import Navbar from "@/components/Navbar";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 
 export default function Projects() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTech, setSelectedTech] = useState("");
+  const [sortOption, setSortOption] = useState("latest");
 
   const projects = [
     {
       id: 1,
-      title: 'Interior-Vaastu',
-      description: 'A MERN-stack website for booking interior design services, showcasing projects.',
-      techStack: 'React.js, Tailwind CSS, MongoDB, Node.js',
-      github: 'https://github.com/hrishikaverma/interior-vaastu',
-      live: 'https://interior-vaastu.netlify.app/'
+      title: "Interior-Vaastu",
+      description:
+        "A MERN-stack website for booking interior design services, showcasing projects.",
+      techStack: "React.js, Tailwind CSS, MongoDB, Node.js",
+      github: "https://github.com/hrishikaverma/interior-vaastu",
+      live: "https://interior-vaastu.netlify.app/",
+      status: "Completed",
+      year: 2025
     },
     {
       id: 2,
-      title: 'Gluco-Predict(Diabetes-Prediction)',
-      description: 'A Flask and MongoDB-based machine learning web app to predict diabetes probability from user input.',
-      techStack: 'AI AND ML, Express, MongoDB',
-      github: 'https://github.com/hrishikaverma/diabetes-prediction',
-      live: 'https://glucopredic1.streamlit.app/'
+      title: "Gluco-Predict(Diabetes-Prediction)",
+      description:
+        "A Flask and MongoDB-based machine learning web app to predict diabetes probability from user input.",
+      techStack: "AI AND ML, Express, MongoDB",
+      github: "https://github.com/hrishikaverma/diabetes-prediction",
+      live: "https://glucopredic1.streamlit.app/",
+      status: "Completed",
+      year: 2024
     },
     {
       id: 3,
-      title: 'Contact Management-APP',
-      description: 'Full-stack web app to manage contacts using React, Node.js, and MongoDB.',
-      techStack: 'React.js, Node.js, MongoDB',
-      github: 'https://github.com/hrishikaverma/contact-management-app',
-      live: 'https://scintillating-pudding-ffed6d.netlify.app/'
+      title: "Contact Management-APP",
+      description:
+        "Full-stack web app to manage contacts using React, Node.js, and MongoDB.",
+      techStack: "React.js, Node.js, MongoDB",
+      github: "https://github.com/hrishikaverma/contact-management-app",
+      live: "https://scintillating-pudding-ffed6d.netlify.app/",
+      status: "In Progress",
+      year: 2024
     },
     {
       id: 4,
-      title: 'Iris-Classification',
-      description: 'Streamlit app to classify Iris flower species using multiple ML models.',
-      techStack: 'Random Forest, Logistic Regression, SVM, Decision Tree',
-      github: 'https://github.com/hrishikaverma/iris-classification-app',
-      live: 'https://iris-classification-app-0301.streamlit.app/'
+      title: "Iris-Classification",
+      description:
+        "Streamlit app to classify Iris flower species using multiple ML models.",
+      techStack: "Random Forest, Logistic Regression, SVM, Decision Tree",
+      github: "https://github.com/hrishikaverma/iris-classification-app",
+      live: "https://iris-classification-app-0301.streamlit.app/",
+      status: "Completed",
+      year: 2023
     },
     {
       id: 5,
-      title: 'Fog Wave Grid',
-      description: 'A creative gaming-style grid UI using React animations.',
-      techStack: 'React.js, Node.js, MongoDB',
-      github: 'https://github.com/hrishikaverma/FOG-WAVE--GRID'
+      title: "Fog Wave Grid",
+      description: "A creative gaming-style grid UI using React animations.",
+      techStack: "React.js, Node.js, MongoDB",
+      github: "https://github.com/hrishikaverma/FOG-WAVE--GRID",
+      status: "Coming Soon",
+      year: 2025
     }
   ];
 
-  const filteredProjects = projects.filter(project =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProjects = projects
+    .filter(
+      (project) =>
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (selectedTech === "" ||
+          project.techStack.toLowerCase().includes(selectedTech.toLowerCase()))
+    )
+    .sort((a, b) => {
+      if (sortOption === "latest") return b.year - a.year;
+      if (sortOption === "alphabetical")
+        return a.title.localeCompare(b.title);
+      return 0;
+    });
 
   return (
     <>
       <Navbar />
-      <main className="p-6 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
+      <main className="p-35 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
         <h1 className="text-4xl font-bold mb-6 text-center">My Projects</h1>
 
-        {/* Search Filter */}
-        <div className="mb-8 text-center">
+        {/* Controls */}
+        <div className="mb-8 text-center space-y-4">
           <input
             type="text"
             placeholder="Search by title..."
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="px-4 py-2 border rounded-md w-full md:w-1/2 dark:bg-gray-800 dark:border-gray-700"
           />
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            {[
+              "React",
+              "MongoDB",
+              "Node.js",
+              "AI",
+              "Tailwind",
+              ""
+            ].map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setSelectedTech(tech)}
+                className={`px-3 py-1 text-sm rounded-full border dark:border-gray-600 ${
+                  selectedTech === tech
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-200 dark:bg-gray-800"
+                }`}
+              >
+                {tech || "All"}
+              </button>
+            ))}
+
+            <select
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+              className="border px-2 py-1 rounded dark:bg-gray-800 dark:border-gray-700"
+            >
+              <option value="latest">Latest</option>
+              <option value="alphabetical">A-Z</option>
+            </select>
+          </div>
         </div>
 
-        {/* Project Cards */}
+        {/* Projects */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map(project => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               whileHover={{ scale: 1.03 }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
               className="border rounded-xl p-6 shadow-lg dark:bg-gray-900 bg-white"
             >
-              {/* Optional Image (replace src with actual image path if available) */}
+              {/* Optional Image */}
               {/* <img src={`/projects/${project.id}.jpg`} alt={project.title} className="rounded mb-4 w-full h-40 object-cover" /> */}
 
               <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
@@ -90,9 +150,8 @@ export default function Projects() {
                 {project.description}
               </p>
 
-              {/* Tech Stack as Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.techStack.split(',').map((tech, index) => (
+              <div className="flex flex-wrap gap-2 mb-2">
+                {project.techStack.split(",").map((tech, index) => (
                   <span
                     key={index}
                     className="bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded-full"
@@ -102,7 +161,18 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Links */}
+              <span
+                className={`inline-block text-xs px-2 py-1 rounded-full mb-4 ${
+                  project.status === "Completed"
+                    ? "bg-green-200 text-green-800"
+                    : project.status === "In Progress"
+                    ? "bg-yellow-200 text-yellow-800"
+                    : "bg-red-200 text-red-800"
+                }`}
+              >
+                {project.status}
+              </span>
+
               <div className="flex items-center gap-4 flex-wrap">
                 {project.github && (
                   <a
