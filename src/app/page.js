@@ -8,7 +8,7 @@ import { FaArrowRight, FaPhone, FaEnvelope, FaGithub, FaLinkedin, FaMoon, FaSun 
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-
+import { FaCertificate, FaLink } from "react-icons/fa";
 
 const PROFILE_PHOTO = '/profile.jpg';
 
@@ -266,6 +266,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
+        
 
         {/* Certifications */}
         <motion.section
