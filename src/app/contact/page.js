@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Navbar from '@/components/Navbar'
+import Footer from "@/components/Footer";
 import { motion } from 'framer-motion'
 
 export default function Contact() {
@@ -141,6 +142,7 @@ export default function Contact() {
           </form>
         </motion.div>
       </main>
+      <Footer />
     </>
   )
 }
