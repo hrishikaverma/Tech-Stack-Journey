@@ -74,19 +74,21 @@ export default function Projects() {
       image: "/projects/iris.png",
       details: "A comparative ML dashboard to identify Iris flower species.",
     },
+    
     {
       id: 5,
-      title: "Fog Wave Grid",
+      title: "Electricity Billing Project",
       description: "A creative grid UI with React wave animations.",
-      techStack: "React.js, Node.js, MongoDB",
+      techStack: "html,css,javascript, Node.js, MongoDB",
       difficulty: "Advanced",
-      github: "https://github.com/hrishikaverma/FOG-WAVE--GRID",
-      live: "",
-      status: "Coming Soon",
+      github: "https://github.com/harshdubey1198/Electricity-Billing-system",
+      live: "https://elebill.netlify.app/",
+      status: "Completed",
       year: 2025,
-      image: "/projects/fog-grid.png",
+      image: "/projects/ele.png",
       details: "Gaming-style bouncing grid animation UI in React. Dynamic and responsive.",
-    },
+    }
+    
   ];
 
   const filteredProjects = projects
