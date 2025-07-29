@@ -85,7 +85,7 @@ export default function Projects() {
       live: "https://elebill.netlify.app/",
       status: "Completed",
       year: 2025,
-      image: "/projects/ele.png",
+      image: "/projects/fog-grid.jpg",
       details: "Gaming-style bouncing grid animation UI in React. Dynamic and responsive.",
     }
     
