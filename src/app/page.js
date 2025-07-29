@@ -155,7 +155,7 @@ export default function Home() {
     src={PROFILE_PHOTO}
     alt="Hrishika Verma"
     width={140}
-    height={140}
+    height={160}
     className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
   />
 
@@ -252,11 +252,13 @@ export default function Home() {
     <span
       role="img"
       aria-label="waving hand"
+
       className="mr-2 inline-block animate-wave"
     >
       👋
     </span>{" "}
-    Hello! I'm an enthusiastic{" "}
+    Hello! I&apos;m an enthusiastic
+      {" "}
     <span className="text-blue-600 dark:text-blue-400 font-semibold underline decoration-blue-300 decoration-2">
       MCA student
     </span>{" "}
@@ -351,8 +353,7 @@ export default function Home() {
             </motion.div>
           ))}
         </section>
-
-        {/* Projects */}
+            {/* Projects */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

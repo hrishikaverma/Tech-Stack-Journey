@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { FaLaptopCode, FaLightbulb, FaCodeBranch } from "react-icons/fa";
+import Image from "next/image";
+
 
 export default function About() {
   return (
@@ -111,11 +113,14 @@ export default function About() {
                 transition={{ delay: 0.2 * index }}
                 className="relative overflow-hidden rounded-3xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 shadow-xl group hover:shadow-2xl transition duration-300"
               >
-                <img
-                  src={item.src}
-                  alt={`Work Image ${index + 1}`}
-                  className="w-full h-64 object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-105"
-                />
+                <Image
+  src={item.src}
+  alt={`Work Image ${index + 1}`}
+  width={500}         // Set an actual width
+  height={256}        // Set an actual height (64 * 4 for h-64)
+  className="w-full h-64 object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-105"
+/>
+
                 <div className="p-4">
                   <h3 className="text-base font-semibold text-gray-800 dark:text-gray-100 text-center">
                     {item.caption}
