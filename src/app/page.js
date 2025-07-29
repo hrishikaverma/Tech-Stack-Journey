@@ -146,50 +146,129 @@ export default function Home() {
       <main className="min-h-screen pt-36 px-6 pb-20 max-w-7xl mx-auto bg-gradient-to-br from-[#f0f4ff] via-white to-[#f5faff] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
         {/* Hero */}
         <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="flex flex-col items-center text-center mb-20 px-4"
-        >
-          <Image
-            src={PROFILE_PHOTO}
-            alt="Hrishika Verma"
-            width={120}
-            height={160}
-            className="rounded-full w-30 h-40 mb-6 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
-          />
-          <h1 className="text-5xl font-extrabold text-blue-900 dark:text-blue-400 mb-3">Hrishika Verma</h1>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">Full Stack Developer | MERN Stack | MCA Student</p>
-          <div className="flex flex-wrap justify-center gap-8 text-gray-600 dark:text-gray-400 text-sm mb-6 select-none">
-            <div className="flex items-center gap-2"><FaPhone /> +91 9131335013</div>
-            <div className="flex items-center gap-2"><FaEnvelope /> hrishikaverma71@gmail.com</div>
-            <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition">
-              <FaGithub /> GitHub
-            </a>
-            <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition">
-              <FaLinkedin /> LinkedIn
-            </a>
-          </div>
-          <Button variant="outline" onClick={() => window.open('/resume.pdf')} className="mx-auto select-none">
-            Download Resume
-          </Button>
-        </motion.section>
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="flex flex-col items-center justify-center mb-24 px-6 relative z-10"
+>
+  <Image
+    src={PROFILE_PHOTO}
+    alt="Hrishika Verma"
+    width={140}
+    height={140}
+    className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
+  />
 
-        {/* Summary */}
+  {/* Name with Gradient */}
+  <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-600 to-indigo-600 dark:from-blue-400 dark:to-purple-300 mb-2 tracking-tight animate-fade-in">
+    Hrishika Verma
+  </h1>
+
+  {/* Typewriter-style Role Text */}
+  <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 whitespace-nowrap overflow-hidden">
+    Full Stack Developer | MERN Stack | MCA Student
+  </p>
+
+  {/* Contact & Social Section */}
+<div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
+  {/* Phone */}
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-300 dark:hover:shadow-blue-800 transition duration-300 group cursor-pointer"
+    title="Call me"
+  >
+    <FaPhone className="text-blue-600 group-hover:animate-pulse" />
+    <span className="text-gray-800 dark:text-gray-300 font-medium">+91 9131335013</span>
+  </motion.div>
+
+  {/* Email */}
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-purple-300 dark:hover:shadow-purple-800 transition duration-300 group cursor-pointer"
+    title="Email me"
+    onClick={() => window.open("mailto:hrishikaverma71@gmail.com")}
+  >
+    <FaEnvelope className="text-purple-600 group-hover:animate-pulse" />
+    <span className="text-gray-800 dark:text-gray-300 font-medium">hrishikaverma71@gmail.com</span>
+  </motion.div>
+
+  {/* GitHub */}
+  <motion.a
+    whileHover={{ scale: 1.05 }}
+    href="https://github.com/yourgithub"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="GitHub Profile"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-gray-300 dark:hover:shadow-gray-800 transition duration-300 group"
+  >
+    <FaGithub className="text-gray-700 dark:text-gray-300 group-hover:text-black" />
+    <span className="text-gray-800 dark:text-gray-300 font-medium">GitHub</span>
+  </motion.a>
+
+  {/* LinkedIn */}
+  <motion.a
+    whileHover={{ scale: 1.05 }}
+    href="https://linkedin.com/in/yourlinkedin"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Connect on LinkedIn"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-400 dark:hover:shadow-blue-700 transition duration-300 group"
+  >
+    <FaLinkedin className="text-blue-700 dark:text-blue-400 group-hover:text-blue-900" />
+    <span className="text-gray-800 dark:text-gray-300 font-medium">LinkedIn</span>
+  </motion.a>
+</div>
+
+  {/* Custom Button */}
+  <button
+    onClick={() => window.open('/resume.pdf')}
+    className="mt-4 px-6 py-2 text-white font-medium rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg border border-transparent hover:from-purple-500 hover:to-blue-600 transition-all duration-300 animate-fade-in"
+  >
+    🚀 Download Resume
+  </button>
+</motion.section>
+
         <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-          }}
-          className="max-w-4xl mx-auto mb-16 text-gray-800 dark:text-gray-200 text-center px-4"
-        >
-          <p className="text-lg leading-relaxed select-text">
-            MCA student with strong practical experience in MERN stack, Java, and SQL. Skilled in building and deploying full-stack applications, RESTful APIs, UI/UX principles, and database design. Delivered multiple academic and internship projects focused on clean code, performance optimization, and collaborative development. Passionate about continuous learning and problem-solving.
-          </p>
-        </motion.section>
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={{
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, staggerChildren: 0.2 } 
+    },
+  }}
+  className="max-w-4xl mx-auto mb-20 p-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-lg shadow-lg text-center"
+>
+  <motion.p 
+    className="text-xl md:text-2xl font-medium leading-relaxed tracking-wide text-gray-800 dark:text-gray-200"
+    variants={{
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 }
+    }}
+  >
+    <span role="img" aria-label="waving hand" className="mr-2 inline-block animate-wave">👋</span> 
+    Hello! I'm an enthusiastic{' '}
+    <span className="text-blue-600 dark:text-blue-400 font-semibold underline decoration-blue-300 decoration-2">MCA student</span> passionate about technology and innovation. I've honed my skills working extensively with the{' '}
+    <span className="text-purple-600 dark:text-purple-400 font-semibold">MERN stack</span>,{' '}
+    <span className="text-green-600 dark:text-green-300 font-semibold italic">Java</span>, and{' '}
+    <span className="text-yellow-600 dark:text-yellow-400 font-semibold">SQL</span>, crafting scalable applications and clean, efficient APIs. 🚀
+    <br /><br />
+    I thrive on solving real-world challenges through code, designing intuitive user interfaces, and delivering seamless user experiences. Whether tackling personal projects or collaborating in dynamic teams, I prioritize writing clean, maintainable, and high-performance code.✨
+  </motion.p>
+  <motion.span 
+    className="block mt-6 text-lg md:text-xl font-semibold text-indigo-600 dark:text-indigo-400"
+    variants={{
+      hidden: { opacity: 0 },
+      visible: { opacity: 1 }
+    }}
+  >
+    Curious by nature. Creator by choice. Always evolving. 💻
+  </motion.span>
+</motion.section>
+
 
         {/* Skills */}
         <section className="mb-20 w-full max-w-5xl mx-auto px-4">
