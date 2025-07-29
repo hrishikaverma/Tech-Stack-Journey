@@ -234,40 +234,87 @@ export default function Home() {
   viewport={{ once: true }}
   variants={{
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, staggerChildren: 0.2 } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, staggerChildren: 0.2 },
     },
   }}
   className="max-w-4xl mx-auto mb-20 p-8 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-lg shadow-lg text-center"
 >
-  <motion.p 
+  <motion.p
     className="text-xl md:text-2xl font-medium leading-relaxed tracking-wide text-gray-800 dark:text-gray-200"
     variants={{
       hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 }
+      visible: { opacity: 1, y: 0 },
     }}
   >
-    <span role="img" aria-label="waving hand" className="mr-2 inline-block animate-wave">👋</span> 
-    Hello! I'm an enthusiastic{' '}
-    <span className="text-blue-600 dark:text-blue-400 font-semibold underline decoration-blue-300 decoration-2">MCA student</span> passionate about technology and innovation. I've honed my skills working extensively with the{' '}
-    <span className="text-purple-600 dark:text-purple-400 font-semibold">MERN stack</span>,{' '}
-    <span className="text-green-600 dark:text-green-300 font-semibold italic">Java</span>, and{' '}
-    <span className="text-yellow-600 dark:text-yellow-400 font-semibold">SQL</span>, crafting scalable applications and clean, efficient APIs. 🚀
-    <br /><br />
-    I thrive on solving real-world challenges through code, designing intuitive user interfaces, and delivering seamless user experiences. Whether tackling personal projects or collaborating in dynamic teams, I prioritize writing clean, maintainable, and high-performance code.✨
+    <span
+      role="img"
+      aria-label="waving hand"
+      className="mr-2 inline-block animate-wave"
+    >
+      👋
+    </span>{" "}
+    Hello! I'm an enthusiastic{" "}
+    <span className="text-blue-600 dark:text-blue-400 font-semibold underline decoration-blue-300 decoration-2">
+      MCA student
+    </span>{" "}
+    passionate about technology and innovation. I've honed my skills working
+    extensively with the{" "}
+    <span className="text-purple-600 dark:text-purple-400 font-semibold">
+      MERN stack
+    </span>
+    ,{" "}
+    <span className="text-green-600 dark:text-green-300 font-semibold italic">
+      Java
+    </span>
+    , and{" "}
+    <span className="text-yellow-600 dark:text-yellow-400 font-semibold">
+      SQL
+    </span>
+    , crafting scalable applications and clean, efficient APIs. 🚀
+    <br />
+    <br />
+    I thrive on solving real-world challenges through code, designing
+    intuitive user interfaces, and delivering seamless user experiences.
+    Whether tackling personal projects or collaborating in dynamic teams, I
+    prioritize writing clean, maintainable, and high-performance code.✨
   </motion.p>
-  <motion.span 
+  <motion.span
     className="block mt-6 text-lg md:text-xl font-semibold text-indigo-600 dark:text-indigo-400"
     variants={{
       hidden: { opacity: 0 },
-      visible: { opacity: 1 }
+      visible: { opacity: 1 },
     }}
   >
     Curious by nature. Creator by choice. Always evolving. 💻
   </motion.span>
-</motion.section>
+
+  <style jsx>{`
+    @keyframes wave {
+      0%,
+      60%,
+      100% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 0 transparent);
+        filter: brightness(100%);
+      }
+      30% {
+        transform: rotate(10deg) scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+        filter: brightness(120%);
+      }
+    }
+
+    .animate-wave {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      animation: wave 2.5s ease-in-out infinite;
+    }
+  `}</style>
+</motion.section>;
+
 
 
         {/* Skills */}

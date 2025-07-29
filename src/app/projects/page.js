@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
@@ -78,15 +79,15 @@ export default function Projects() {
     {
       id: 5,
       title: "Electricity Billing Project",
-      description: "A creative grid UI with React wave animations.",
-      techStack: "html,css,javascript, Node.js, MongoDB",
+      description: "A creative grid UI with React  wave animations.",
+      techStack: "React.js, Node.js, MongoDB",
       difficulty: "Advanced",
       github: "https://github.com/harshdubey1198/Electricity-Billing-system",
       live: "https://elebill.netlify.app/",
       status: "Completed",
       year: 2025,
       image: "/projects/fog-grid.jpg",
-      details: "Gaming-style bouncing grid animation UI in React. Dynamic and responsive.",
+      details: "A web-based electricity billing system that manages CRUD operations for users and admins, built with MongoDB and React.",
     }
     
   ];
@@ -106,8 +107,18 @@ export default function Projects() {
   return (
     <>
       <Navbar />
-      <main className="p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
-        <h1 className="text-4xl font-bold mb-6 text-center">My Projects</h1>
+      {/* <main className="p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
+        <h1 className="text-4xl font-bold mb-6 text-center">My Projects</h1> */}
+        <main className="pt-32 p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
+  <motion.h1
+    initial={{ opacity: 0, y: -30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-5xl font-extrabold mb-10 text-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg"
+  >
+    My Projects
+  </motion.h1>
+
 
         {/* Controls */}
         <div className="mb-8 text-center space-y-4">
@@ -259,6 +270,7 @@ export default function Projects() {
           </div>
         )}
       </main>
+      <Footer />
     </>
   );
 }
