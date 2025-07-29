@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
-
 import { FaArrowRight, FaPhone, FaEnvelope, FaGithub, FaLinkedin, FaMoon, FaSun } from 'react-icons/fa';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { FaCertificate, FaLink } from "react-icons/fa";
 
 const PROFILE_PHOTO = '/profile.jpg';
 
@@ -30,31 +29,12 @@ const highlights = [
   { title: 'Internship Top Performer', count: 1 },
 ];
 
-function useCountUp(target, duration = 1500) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    let end = target;
-    let increment = end / (duration / 30);
-    let timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
-      }
-      setCount(Math.floor(start));
-    }, 30);
-    return () => clearInterval(timer);
-  }, [target, duration]);
-  return count;
-}
-
 const circleRadius = 50;
 const circleCircumference = 2 * Math.PI * circleRadius;
 
 function CircularSkill({ skill }) {
   const { name, level } = skill;
-  const ref = React.useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const controls = useAnimation();
 
@@ -99,17 +79,39 @@ function DarkModeToggle({ darkMode, toggleDarkMode }) {
       title="Toggle Dark Mode"
       aria-label="Toggle Dark Mode"
     >
-      {darkMode ? (
-        <FaSun size={24} className="text-yellow-400" />
-      ) : (
-        <FaMoon size={24} className="text-gray-600" />
-      )}
+      {darkMode ? <FaSun size={24} className="text-yellow-400" /> : <FaMoon size={24} className="text-gray-600" />}
     </nav>
   );
 }
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [animatedCounts, setAnimatedCounts] = useState(highlights.map(() => 0));
+
+  useEffect(() => {
+    const durations = 1500;
+    const steps = durations / 30;
+
+    const intervals = highlights.map(({ count }, index) => {
+      let current = 0;
+      const increment = count / steps;
+
+      return setInterval(() => {
+        current += increment;
+        if (current >= count) {
+          current = count;
+          clearInterval(intervals[index]);
+        }
+        setAnimatedCounts(prev => {
+          const updated = [...prev];
+          updated[index] = Math.floor(current);
+          return updated;
+        });
+      }, 30);
+    });
+
+    return () => intervals.forEach(clearInterval);
+  }, []);
 
   useEffect(() => {
     if (
@@ -149,13 +151,12 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="flex flex-col items-center text-center mb-20 px-4"
         >
-          <motion.img
+          <Image
             src={PROFILE_PHOTO}
             alt="Hrishika Verma"
+            width={120}
+            height={160}
             className="rounded-full w-30 h-40 mb-6 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2 }}
           />
           <h1 className="text-5xl font-extrabold text-blue-900 dark:text-blue-400 mb-3">Hrishika Verma</h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">Full Stack Developer | MERN Stack | MCA Student</p>
@@ -202,30 +203,27 @@ export default function Home() {
 
         {/* Highlights */}
         <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4 mb-20">
-          {highlights.map(({ title, count }, i) => {
-            const animatedCount = useCountUp(count)
-            return (
-              <motion.div
-                key={title}
-                whileHover={{ scale: 1.05, boxShadow: "0 15px 25px rgba(59, 130, 246, 0.4)" }}
-                transition={{ type: 'spring', stiffness: 280 }}
-              >
-                <Card className="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 cursor-pointer shadow-lg hover:shadow-2xl">
-                  <CardContent className="text-center select-none">
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: i * 0.3, duration: 1 }}
-                      className="text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-2"
-                    >
-                      {animatedCount}
-                    </motion.div>
-                    <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-300">{title}</h3>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )
-          })}
+          {highlights.map(({ title }, i) => (
+            <motion.div
+              key={title}
+              whileHover={{ scale: 1.05, boxShadow: "0 15px 25px rgba(59, 130, 246, 0.4)" }}
+              transition={{ type: 'spring', stiffness: 280 }}
+            >
+              <Card className="p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 cursor-pointer shadow-lg hover:shadow-2xl">
+                <CardContent className="text-center select-none">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: i * 0.3, duration: 1 }}
+                    className="text-5xl font-extrabold text-blue-700 dark:text-blue-400 mb-2"
+                  >
+                    {animatedCounts[i]}
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-300">{title}</h3>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </section>
 
         {/* Projects */}
@@ -238,6 +236,7 @@ export default function Home() {
         >
           <h2 className="text-3xl font-semibold text-blue-800 dark:text-blue-400 mb-10 text-center">Projects</h2>
           <div className="flex flex-col space-y-8">
+            {/* Project 1 */}
             <motion.div
               whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59,130,246,0.3)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer"
@@ -251,6 +250,8 @@ export default function Home() {
                 View Source <FaArrowRight className="ml-2" />
               </Button>
             </motion.div>
+
+            {/* Project 2 */}
             <motion.div
               whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59,130,246,0.3)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer"
@@ -266,7 +267,6 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
-        
 
         {/* Certifications */}
         <motion.section
@@ -285,12 +285,9 @@ export default function Home() {
             <li>Frontend Development – Internshala Trainings</li>
           </ul>
         </motion.section>
-
-        
       </main>
-       <Footer />
-      
+
+      <Footer />
     </>
-  )
+  );
 }
- 
