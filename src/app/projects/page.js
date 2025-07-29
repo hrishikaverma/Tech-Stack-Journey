@@ -13,6 +13,7 @@ export default function Projects() {
   const [selectedTech, setSelectedTech] = useState("");
   const [sortOption, setSortOption] = useState("latest");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [zoomImage, setZoomImage] = useState(null);
 
   const techIcons = {
     "React.js": <FaReact />,
@@ -75,7 +76,7 @@ export default function Projects() {
       image: "/projects/iris.png",
       details: "A comparative ML dashboard to identify Iris flower species.",
     },
-    
+
     {
       id: 5,
       title: "Electricity Billing Project",
@@ -87,16 +88,17 @@ export default function Projects() {
       status: "Completed",
       year: 2025,
       image: "/projects/fog-grid.jpg",
-      details: "A web-based electricity billing system that manages CRUD operations for users and admins, built with MongoDB and React.",
-    }
-    
+      details:
+        "A web-based electricity billing system that manages CRUD operations for users and admins, built with MongoDB and React.",
+    },
   ];
 
   const filteredProjects = projects
     .filter(
       (project) =>
         project.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        (selectedTech === "" || project.techStack.toLowerCase().includes(selectedTech.toLowerCase()))
+        (selectedTech === "" ||
+          project.techStack.toLowerCase().includes(selectedTech.toLowerCase()))
     )
     .sort((a, b) => {
       if (sortOption === "latest") return b.year - a.year;
@@ -107,18 +109,15 @@ export default function Projects() {
   return (
     <>
       <Navbar />
-      {/* <main className="p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
-        <h1 className="text-4xl font-bold mb-6 text-center">My Projects</h1> */}
-        <main className="pt-32 p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
-  <motion.h1
-    initial={{ opacity: 0, y: -30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="text-5xl font-extrabold mb-10 text-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg"
-  >
-    My Projects
-  </motion.h1>
-
+      <main className="pt-32 p-8 max-w-6xl mx-auto text-gray-800 dark:text-gray-100">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl font-extrabold mb-10 text-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg"
+        >
+          My Projects
+        </motion.h1>
 
         {/* Controls */}
         <div className="mb-8 text-center space-y-4">
@@ -170,12 +169,17 @@ export default function Projects() {
               className="border rounded-xl p-6 shadow-lg dark:bg-gray-900 bg-white cursor-pointer"
             >
               <h2 className="text-2xl font-semibold mb-1">{project.title}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{project.description}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                {project.description}
+              </p>
 
               {/* Tech Stack Icons */}
               <div className="flex flex-wrap gap-2 mb-2">
                 {project.techStack.split(",").map((tech, index) => (
-                  <span key={index} className="flex items-center gap-1 bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded-full">
+                  <span
+                    key={index}
+                    className="flex items-center gap-1 bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded-full"
+                  >
                     {techIcons[tech.trim()] || null} {tech.trim()}
                   </span>
                 ))}
@@ -183,7 +187,9 @@ export default function Projects() {
 
               {/* Difficulty & Status */}
               <div className="flex items-center gap-2 flex-wrap mb-4">
-                <span className="bg-purple-100 text-purple-800 px-2 py-1 text-xs rounded-full">{project.difficulty}</span>
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 text-xs rounded-full">
+                  {project.difficulty}
+                </span>
                 <span
                   className={`text-xs px-2 py-1 rounded-full ${
                     project.status === "Completed"
@@ -206,68 +212,103 @@ export default function Projects() {
 
         {/* Modal Popup */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="bg-white dark:bg-gray-900 p-6 rounded-xl max-w-xl w-full relative max-h-[90vh] overflow-y-auto"
-            >
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-3 right-4 text-lg"
+          <>
+            <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="bg-white dark:bg-gray-900 p-6 rounded-xl max-w-xl w-full relative max-h-[90vh] overflow-y-auto mt-35"
               >
-                ❌
-              </button>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-3 right-4 text-xl text-gray-700 dark:text-gray-300 hover:text-red-500 transition"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
 
-              <h2 className="text-2xl font-bold mb-2">{selectedProject.title}</h2>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{selectedProject.details}</p>
+                <h2 className="text-3xl font-extrabold text-blue-700 dark:text-blue-400 mb-2">
+                  {selectedProject.title}
+                </h2>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                  {selectedProject.details}
+                </p>
 
-              {selectedProject.image && (
-  <div className="w-full max-h-[300px] overflow-hidden rounded mb-4">
-    <Image
-      src={selectedProject.image}
-      alt={selectedProject.title}
-      layout="responsive"
-      width={600}
-      height={300}
-      className="object-contain"
-    />
-  </div>
-)}
-
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.techStack.split(",").map((tech, i) => (
-                  <span key={i} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                    {tech.trim()}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-4">
-                {selectedProject.github && (
-                  <a
-                    href={selectedProject.github}
-                    target="_blank"
-                    className="text-blue-600 underline"
+                {/* Zoomable Image Section */}
+                {selectedProject.image && (
+                  <div
+                    onClick={() => setZoomImage(selectedProject.image)}
+                    className="w-full max-h-[300px] overflow-hidden rounded-lg shadow-md mb-4 cursor-zoom-in"
                   >
-                    GitHub
-                  </a>
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      layout="responsive"
+                      width={600}
+                      height={300}
+                      className="object-contain transition duration-300"
+                    />
+                  </div>
                 )}
-                {selectedProject.live ? (
-                  <a
-                    href={selectedProject.live}
-                    target="_blank"
-                    className="text-green-600 underline"
-                  >
-                    Live Demo
-                  </a>
-                ) : (
-                  <span className="text-yellow-600">Coming Soon</span>
-                )}
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedProject.techStack.split(",").map((tech, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+                    >
+                      {tech.trim()}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-4">
+                  {selectedProject.github && (
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      className="text-blue-600 underline"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                  {selectedProject.live ? (
+                    <a
+                      href={selectedProject.live}
+                      target="_blank"
+                      className="text-green-600 underline"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  ) : (
+                    <span className="text-yellow-600">Coming Soon</span>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Zoom Image Modal */}
+            {zoomImage && (
+              <div
+                className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-6 cursor-zoom-out"
+                onClick={() => setZoomImage(null)}
+              >
+                <div className="max-h-screen overflow-auto rounded-xl">
+                  <Image
+                    src={zoomImage}
+                    alt="Zoomed project"
+                    width={1200}
+                    height={800}
+                    className="object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </motion.div>
-          </div>
+            )}
+          </>
         )}
       </main>
       <Footer />
