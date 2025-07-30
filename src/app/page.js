@@ -398,22 +398,71 @@ export default function Home() {
         </motion.section>
 
         {/* Certifications */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="max-w-4xl mx-auto w-full mb-20 px-4"
-        >
-          <h2 className="text-3xl font-semibold text-blue-800 dark:text-blue-400 mb-8 text-center">Certifications</h2>
-          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-3 px-4">
-            <li>Generative AI: Prompt Engineering Basics – IBM (Coursera)</li>
-            <li>Gen AI for Code Generation – Edureka (Coursera)</li>
-            <li>AI For Everyone – DeepLearning.AI (Coursera)</li>
-            <li>Foundations: Data, Data, Everywhere – Google (Coursera)</li>
-            <li>Frontend Development – Internshala Trainings</li>
-          </ul>
-        </motion.section>
+<motion.section
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.4, duration: 1 }}
+  className="max-w-5xl mx-auto w-full mb-20 px-4"
+>
+  <h2 className="text-3xl font-semibold text-blue-800 dark:text-blue-400 mb-10 text-center">
+    Certifications
+  </h2>
+
+  <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+    {[
+      {
+        title: "Generative AI: Prompt Engineering Basics – IBM (Coursera)",
+        logo: "/cert-logos/ibm.jpeg", // Place your logo in public/cert-logos/
+        link: "https://coursera.org/verify/your-certificate-id1",
+      },
+      {
+        title: "Gen AI for Code Generation – Edureka (Coursera)",
+        logo: "/cert-logos/edureka.png",
+        link: "https://coursera.org/verify/your-certificate-id2",
+      },
+      {
+        title: "AI For Everyone – DeepLearning.AI (Coursera)",
+        logo: "/cert-logos/deeplearningai.jpeg",
+        link: "https://coursera.org/verify/your-certificate-id3",
+      },
+      {
+        title: "Foundations: Data, Data, Everywhere – Google (Coursera)",
+        logo: "/cert-logos/google.jpeg",
+        link: "https://coursera.org/verify/your-certificate-id4",
+      },
+      {
+        title: "Frontend Development – Internshala Trainings",
+        logo: "/cert-logos/internshala.jpeg",
+        link: "https://internshala.com/verify/your-certificate-id5",
+      },
+    ].map((cert, index) => (
+      <motion.a
+        key={index}
+        href={cert.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.05, rotate: 0.5 }}
+        whileTap={{ scale: 0.98 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white dark:bg-gray-800 shadow-md rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 cursor-pointer flex items-start gap-4"
+      >
+        <img
+          src={cert.logo}
+          alt="logo"
+          className="w-10 h-10 object-contain mt-1"
+        />
+        <p className="text-gray-800 dark:text-gray-200 text-sm font-medium leading-relaxed">
+          {cert.title}
+        </p>
+      </motion.a>
+    ))}
+  </div>
+</motion.section>
+
       </main>
 
       <Footer />
