@@ -143,7 +143,7 @@ export default function Home() {
       <Navbar />
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main className="min-h-screen pt-36 px-6 pb-20 max-w-7xl mx-auto bg-gradient-to-br from-[#f0f4ff] via-white to-[#f5faff] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
+      <main className="min-h-screen pt-36 px-4 sm:px-6 pb-20 max-w-7xl mx-auto bg-gradient-to-br from-[#f0f4ff] via-white to-[#f5faff] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
         {/* Hero */}
         <motion.section
   initial={{ opacity: 0, y: 30 }}
