@@ -91,6 +91,20 @@ export default function Projects() {
       details:
         "A web-based electricity billing system that manages CRUD operations for users and admins, built with MongoDB and React.",
     },
+    {
+      id: 6,
+      title: "Tech Stack Journey",
+      description: "A creative grid UI with Next.js wave animations.",
+      techStack: "Next.js, Node.js, MongoDB",
+      difficulty: "Advanced",
+      github: "https://github.com/hrishikaverma/Tech-Stack-Journey",
+      live: "https://techstackjourn.netlify.app/",
+      status: "Completed",
+      year: 2025,
+      image: "/projects/tech.jpg",
+      details:
+        "A web-based electricity billing system that manages CRUD operations for users and admins, built with MongoDB and React.",
+    }
   ];
 
   const filteredProjects = projects

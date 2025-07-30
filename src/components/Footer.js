@@ -18,13 +18,13 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Connect with me</h3>
           <div className="flex justify-center md:justify-start gap-5">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/hrishikaverma/" target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-2xl hover:text-blue-400 transition duration-300" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/hrishika9131335013/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="text-2xl hover:text-blue-400 transition duration-300" />
             </a>
-            <a href="mailto:your@email.com">
+            <a href="hrishikaverma71@gmail.com">
               <FaEnvelope className="text-2xl hover:text-blue-400 transition duration-300" />
             </a>
           </div>

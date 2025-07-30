@@ -197,7 +197,7 @@ export default function Home() {
   {/* GitHub */}
   <motion.a
     whileHover={{ scale: 1.05 }}
-    href="https://github.com/yourgithub"
+    href="https://github.com/hrishikaverma/"
     target="_blank"
     rel="noopener noreferrer"
     title="GitHub Profile"
@@ -210,7 +210,7 @@ export default function Home() {
   {/* LinkedIn */}
   <motion.a
     whileHover={{ scale: 1.05 }}
-    href="https://linkedin.com/in/yourlinkedin"
+    href="https://www.linkedin.com/in/hrishika9131335013/"
     target="_blank"
     rel="noopener noreferrer"
     title="Connect on LinkedIn"
@@ -369,7 +369,7 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59,130,246,0.3)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer"
-              onClick={() => window.open('https://github.com/yourgithub/glucopredict', '_blank')}
+              onClick={() => window.open('https://glucopredic1.streamlit.app/', '_blank')}
             >
               <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-300 mb-1">Glucopredict – Diabetes Prediction App</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-3">
@@ -384,7 +384,7 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(59,130,246,0.3)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 cursor-pointer"
-              onClick={() => window.open('https://ivaastu.example.com', '_blank')}
+              onClick={() => window.open('https://interior-vaastu.netlify.app/', '_blank')}
             >
               <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-300 mb-1">iVaastu – Interior Designer Platform</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-3">

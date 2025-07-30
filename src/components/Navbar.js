@@ -112,10 +112,10 @@ export default function Navbar() {
 
           {/* Social Icons */}
           <div className="flex gap-3 ml-3 text-lg text-gray-600 dark:text-gray-300">
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <a href="https://github.com/hrishikaverma/" target="_blank" rel="noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/hrishika9131335013/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
           </div>
@@ -180,10 +180,10 @@ export default function Navbar() {
             </a>
 
             <div className="flex gap-4 mt-4 text-lg text-gray-600 dark:text-gray-300">
-              <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a href="https://github.com/hrishikaverma/" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/hrishika9131335013/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
             </div>
