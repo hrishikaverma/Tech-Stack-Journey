@@ -262,7 +262,7 @@ export default function Home() {
     <span className="text-blue-600 dark:text-blue-400 font-semibold underline decoration-blue-300 decoration-2">
       MCA student
     </span>{" "}
-    passionate about technology and innovation. I've honed my skills working
+    passionate about technology and innovation. I&apos;ve honed my skills working
     extensively with the{" "}
     <span className="text-purple-600 dark:text-purple-400 font-semibold">
       MERN stack
