@@ -143,7 +143,8 @@ export default function Home() {
       <Navbar />
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main className="min-h-screen pt-36 px-6 pb-20 max-w-7xl mx-auto bg-gradient-to-br from-[#f0f4ff] via-white to-[#f5faff] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
+      <main className="min-h-screen pt-24 md:pt-36 px-4 md:px-6 pb-16 md:pb-20 max-w-7xl mx-auto ...">
+
         {/* Hero */}
         <motion.section
   initial={{ opacity: 0, y: 30 }}
@@ -152,15 +153,16 @@ export default function Home() {
   className="flex flex-col items-center justify-center mb-24 px-6 relative z-10"
 >
   <Image
-    src={PROFILE_PHOTO}
-    alt="Hrishika Verma"
-    width={140}
-    height={160}
-    className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
-  />
+  src={PROFILE_PHOTO}
+  alt="Hrishika Verma"
+  width={140}
+  height={160}
+  className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover w-32 h-32 md:w-[140px] md:h-[160px]"
+/>
 
   {/* Name with Gradient */}
-  <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-600 to-indigo-600 dark:from-blue-400 dark:to-purple-300 mb-2 tracking-tight animate-fade-in">
+ <h1 className="text-3xl md:text-5xl font-extrabold ...">
+
     Hrishika Verma
   </h1>
 
