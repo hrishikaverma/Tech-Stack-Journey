@@ -160,9 +160,11 @@ export default function Home() {
   />
 
   {/* Name with Gradient */}
-  <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-600 to-indigo-600 dark:from-blue-400 dark:to-purple-300 mb-2 tracking-tight animate-fade-in">
-    Hrishika Verma
-  </h1>
+ <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 whitespace-nowrap">
+  Hrishika&nbsp;Verma
+</h1>
+
+
 
   {/* Typewriter-style Role Text */}
   <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 whitespace-nowrap overflow-hidden">
