@@ -152,13 +152,15 @@ export default function Home() {
   transition={{ duration: 1 }}
   className="flex flex-col items-center justify-center mb-24 px-6 relative z-10"
 >
+  <div className="w-32 h-32 md:w-[140px] md:h-[160px] rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-lg mb-5">
   <Image
-  src={PROFILE_PHOTO}
-  alt="Hrishika Verma"
-  width={140}
-  height={160}
-  className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover w-32 h-32 md:w-[140px] md:h-[160px]"
-/>
+    src={PROFILE_PHOTO}
+    alt="Hrishika Verma"
+    fill
+    className="object-cover"
+  />
+</div>
+
 
   {/* Name with Gradient */}
  <h1 className="text-3xl md:text-5xl font-extrabold ...">
