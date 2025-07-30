@@ -141,9 +141,10 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-lg font-medium text-gray-800 dark:text-gray-100">
-            “I don’t just write code, I design experiences that users love and clients trust.”
-          </p>
+         <p className="text-lg font-medium text-gray-800 dark:text-gray-100">
+  “I don&apos;t just write code, I design experiences that users love and clients trust.”
+</p>
+
         </motion.div>
       </main>
       <Footer />
