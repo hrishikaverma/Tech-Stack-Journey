@@ -375,7 +375,7 @@ export default function Home() {
               <p className="text-gray-700 dark:text-gray-300 mb-3">
                 A Flask & MongoDB-based ML web app predicting diabetes risk from user input.
               </p>
-              <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); window.open('https://github.com/yourgithub/glucopredict', '_blank') }}>
+              <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); window.open('https://github.com/hrishikaverma/diabetes-prediction', '_blank') }}>
                 View Source <FaArrowRight className="ml-2" />
               </Button>
             </motion.div>
@@ -390,7 +390,7 @@ export default function Home() {
               <p className="text-gray-700 dark:text-gray-300 mb-3">
                 MERN stack platform for booking interior design services with admin management.
               </p>
-              <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); window.open('https://github.com/yourgithub/ivaastu', '_blank') }}>
+              <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); window.open('https://github.com/hrishikaverma/interior-vaastu', '_blank') }}>
                 View Source <FaArrowRight className="ml-2" />
               </Button>
             </motion.div>
