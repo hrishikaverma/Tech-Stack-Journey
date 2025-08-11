@@ -24,7 +24,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/hrishika9131335013/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="text-2xl hover:text-blue-400 transition duration-300" />
             </a>
-            <a href="hrishikaverma71@gmail.com">
+            <a href="hrishika.verma.mca2025@gmail.com">
               <FaEnvelope className="text-2xl hover:text-blue-400 transition duration-300" />
             </a>
           </div>

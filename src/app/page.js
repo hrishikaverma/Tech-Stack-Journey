@@ -188,10 +188,10 @@ export default function Home() {
     whileHover={{ scale: 1.05 }}
     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-purple-300 dark:hover:shadow-purple-800 transition duration-300 group cursor-pointer"
     title="Email me"
-    onClick={() => window.open("mailto:hrishikaverma71@gmail.com")}
+    onClick={() => window.open("mailto:hrishika.verma.mca2025@gmail.com")}
   >
     <FaEnvelope className="text-purple-600 group-hover:animate-pulse" />
-    <span className="text-gray-800 dark:text-gray-300 font-medium">hrishikaverma71@gmail.com</span>
+    <span className="text-gray-800 dark:text-gray-300 font-medium">hrishika.verma.mca2025@gmail.com</span>
   </motion.div>
 
   {/* GitHub */}
