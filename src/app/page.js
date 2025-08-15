@@ -151,6 +151,7 @@ export default function Home() {
   transition={{ duration: 1 }}
   className="flex flex-col items-center justify-center mb-24 px-6 relative z-10"
 >
+  {/* Profile Image */}
   <Image
     src={PROFILE_PHOTO}
     alt="Hrishika Verma"
@@ -159,23 +160,22 @@ export default function Home() {
     className="rounded-full mb-5 shadow-lg border-4 border-blue-500 dark:border-blue-400 object-cover"
   />
 
-  {/* Name with Gradient */}
+  {/* Name */}
   <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 text-center">
     Hrishika&nbsp;Verma
   </h1>
 
-  {/* Two-Line Typewriter */}
+  {/* Two-Line Typewriter Animation */}
   <div className="text-center leading-snug font-semibold text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl mt-2">
-    <p className="animate-typing-line1 border-r-2 pr-2 inline-block whitespace-nowrap overflow-hidden">
+    <p className="typing-line1 border-r-2 pr-2 overflow-hidden">
       Full Stack Developer
     </p>
-    <br />
-    <p className="animate-typing-line2 border-r-2 pr-2 inline-block whitespace-nowrap overflow-hidden">
+    <p className="typing-line2 border-r-2 pr-2 overflow-hidden mt-1">
       MERN Stack | MCA Student
     </p>
   </div>
 
-  {/* Contact & Social Section */}
+  {/* Contact & Social Links */}
   <div className="flex flex-wrap justify-center gap-6 text-sm mb-8 mt-6">
     {/* Email */}
     <motion.div
@@ -217,7 +217,7 @@ export default function Home() {
     </motion.a>
   </div>
 
-  {/* Download Resume Button */}
+  {/* Download Resume */}
   <button
     onClick={() => window.open('/resume.pdf')}
     className="mt-4 px-6 py-2 text-white font-medium rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg border border-transparent hover:from-purple-500 hover:to-blue-600 transition-all duration-300 animate-fade-in"
@@ -227,11 +227,7 @@ export default function Home() {
 
   {/* Typewriter Animations */}
   <style jsx>{`
-    @keyframes typing1 {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes typing2 {
+    @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
@@ -240,11 +236,25 @@ export default function Home() {
       25%, 75% { border-color: currentColor }
     }
 
-    .animate-typing-line1 {
-      animation: typing1 2s steps(25) 0.5s forwards, blink 0.75s step-end infinite;
+    .typing-line1 {
+      display: inline-block;
+      white-space: nowrap;
+      animation: typing 2s steps(25) 0.5s forwards, blink 0.75s step-end infinite;
     }
-    .animate-typing-line2 {
-      animation: typing2 2s steps(30) 2.6s forwards, blink 0.75s step-end infinite;
+    .typing-line2 {
+      display: inline-block;
+      white-space: nowrap;
+      animation: typing 2s steps(28) 2.6s forwards, blink 0.75s step-end infinite;
+    }
+
+    /* Mobile Friendly: Slightly faster animation & adjusted steps */
+    @media (max-width: 640px) {
+      .typing-line1 {
+        animation: typing 1.5s steps(20) 0.5s forwards, blink 0.75s step-end infinite;
+      }
+      .typing-line2 {
+        animation: typing 1.5s steps(22) 2s forwards, blink 0.75s step-end infinite;
+      }
     }
   `}</style>
 </motion.section>
