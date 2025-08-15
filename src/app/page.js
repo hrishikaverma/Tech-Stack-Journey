@@ -164,17 +164,19 @@ export default function Home() {
     Hrishika&nbsp;Verma
   </h1>
 
-  {/* Role / Tagline */}
-  {/* Mobile → normal text, Desktop → typewriter effect */}
-  <p className="hidden sm:block text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 text-center leading-snug">
-    Full Stack Developer | MERN Stack | MCA Student
-  </p>
-  <p className="block sm:hidden text-base font-semibold text-gray-700 dark:text-gray-300 mb-5 text-center leading-snug break-words">
-    Full Stack Developer | MERN Stack | MCA Student
-  </p>
+  {/* Two-Line Typewriter */}
+  <div className="text-center leading-snug font-semibold text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl mt-2">
+    <p className="animate-typing-line1 border-r-2 pr-2 inline-block whitespace-nowrap overflow-hidden">
+      Full Stack Developer
+    </p>
+    <br />
+    <p className="animate-typing-line2 border-r-2 pr-2 inline-block whitespace-nowrap overflow-hidden">
+      MERN Stack | MCA Student
+    </p>
+  </div>
 
   {/* Contact & Social Section */}
-  <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
+  <div className="flex flex-wrap justify-center gap-6 text-sm mb-8 mt-6">
     {/* Email */}
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -222,6 +224,29 @@ export default function Home() {
   >
     🚀 Download Resume
   </button>
+
+  {/* Typewriter Animations */}
+  <style jsx>{`
+    @keyframes typing1 {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes typing2 {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      0%, 50%, 100% { border-color: transparent }
+      25%, 75% { border-color: currentColor }
+    }
+
+    .animate-typing-line1 {
+      animation: typing1 2s steps(25) 0.5s forwards, blink 0.75s step-end infinite;
+    }
+    .animate-typing-line2 {
+      animation: typing2 2s steps(30) 2.6s forwards, blink 0.75s step-end infinite;
+    }
+  `}</style>
 </motion.section>
 
         <motion.section
