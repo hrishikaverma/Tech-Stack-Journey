@@ -167,9 +167,10 @@ export default function Home() {
 
 
   {/* Typewriter-style Role Text */}
-  <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 whitespace-nowrap overflow-hidden">
-    Full Stack Developer | MERN Stack | MCA Student
-  </p>
+  <p className="text-lg sm:text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 whitespace-normal break-words">
+  Full Stack Developer | MERN Stack | MCA Student
+</p>
+
 
   {/* Contact & Social Section */}
 <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
