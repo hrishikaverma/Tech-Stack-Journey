@@ -46,7 +46,6 @@ export default function Contact() {
     }
   }
 
-  // For dynamic input border color based on error (simple example)
   const inputClass = (field) =>
     `w-full px-4 py-3 rounded-lg border transition-all
      ${
@@ -59,7 +58,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <main className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 px-4 py-20 sm:px-6 overflow-hidden">
+      <main className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 px-4 py-20 sm:px-6 overflow-hidden pt-28 sm:pt-32">
         {/* Decorative Circles */}
         <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse" />
         <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-purple-200 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-pulse" />
@@ -78,13 +77,12 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8"
           >
-            <h1 className="text-4xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">
               Contact Me
             </h1>
-            <p className="mt-2 text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-  I&apos;d love to hear from you. Fill out the form below to get started.
-</p>
-
+            <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+              I&apos;d love to hear from you. Fill out the form below to get started.
+            </p>
           </motion.div>
 
           {submitted && (
@@ -111,10 +109,7 @@ export default function Contact() {
 
           <form onSubmit={handleSubmit} className="space-y-8" noValidate>
             <div className="relative">
-              <label
-                htmlFor="name"
-                className="block font-semibold text-gray-700 dark:text-gray-200 mb-1"
-              >
+              <label htmlFor="name" className="block font-semibold text-gray-700 dark:text-gray-200 mb-1">
                 Name
               </label>
               <input
@@ -133,10 +128,7 @@ export default function Contact() {
             </div>
 
             <div className="relative">
-              <label
-                htmlFor="email"
-                className="block font-semibold text-gray-700 dark:text-gray-200 mb-1"
-              >
+              <label htmlFor="email" className="block font-semibold text-gray-700 dark:text-gray-200 mb-1">
                 Email
               </label>
               <input
@@ -155,10 +147,7 @@ export default function Contact() {
             </div>
 
             <div className="relative">
-              <label
-                htmlFor="message"
-                className="block font-semibold text-gray-700 dark:text-gray-200 mb-1"
-              >
+              <label htmlFor="message" className="block font-semibold text-gray-700 dark:text-gray-200 mb-1">
                 Message
               </label>
               <textarea
