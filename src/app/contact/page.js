@@ -58,7 +58,7 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <main className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 px-4 py-20 sm:px-6 overflow-hidden pt-36 sm:pt-40">
+      <main className="relative min-h-screen flex items-start justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 px-4 py-20 sm:px-6 overflow-hidden pt-36 sm:pt-40">
 
         {/* Decorative Circles */}
         <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse" />
