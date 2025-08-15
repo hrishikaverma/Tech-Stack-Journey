@@ -165,7 +165,7 @@ export default function Home() {
     Hrishika&nbsp;Verma
   </h1>
 
-  {/* Two-Line Typewriter Animation */}
+  {/* Cinematic Typewriter Animation */}
   <div className="text-center leading-snug font-semibold text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl mt-2">
     <p className="typing-line1 border-r-2 pr-2 overflow-hidden">
       Full Stack Developer
@@ -225,7 +225,7 @@ export default function Home() {
     🚀 Download Resume
   </button>
 
-  {/* Typewriter Animations */}
+  {/* Cinematic Typewriter CSS */}
   <style jsx>{`
     @keyframes typing {
       from { width: 0 }
@@ -236,24 +236,44 @@ export default function Home() {
       25%, 75% { border-color: currentColor }
     }
 
+    /* First line animation */
     .typing-line1 {
       display: inline-block;
       white-space: nowrap;
-      animation: typing 2s steps(25) 0.5s forwards, blink 0.75s step-end infinite;
+      overflow: hidden;
+      animation:
+        typing 2.5s steps(25) 0.5s forwards,
+        blink 0.75s step-end infinite 3s; /* blink starts after typing ends */
     }
+
+    /* Second line starts after first finishes + blink delay */
     .typing-line2 {
       display: inline-block;
       white-space: nowrap;
-      animation: typing 2s steps(28) 2.6s forwards, blink 0.75s step-end infinite;
+      overflow: hidden;
+      opacity: 0;
+      animation:
+        fadeIn 0.1s linear 4s forwards, /* appear after delay */
+        typing 2.2s steps(28) 4s forwards,
+        blink 0.75s step-end infinite 6.3s;
     }
 
-    /* Mobile Friendly: Slightly faster animation & adjusted steps */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Mobile adjustments */
     @media (max-width: 640px) {
       .typing-line1 {
-        animation: typing 1.5s steps(20) 0.5s forwards, blink 0.75s step-end infinite;
+        animation:
+          typing 2s steps(20) 0.5s forwards,
+          blink 0.75s step-end infinite 2.5s;
       }
       .typing-line2 {
-        animation: typing 1.5s steps(22) 2s forwards, blink 0.75s step-end infinite;
+        animation:
+          fadeIn 0.1s linear 3s forwards,
+          typing 1.8s steps(22) 3s forwards,
+          blink 0.75s step-end infinite 4.8s;
       }
     }
   `}</style>
