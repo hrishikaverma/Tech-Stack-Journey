@@ -144,8 +144,8 @@ export default function Home() {
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <main className="min-h-screen pt-36 px-4 sm:px-6 pb-20 max-w-7xl mx-auto bg-gradient-to-br from-[#f0f4ff] via-white to-[#f5faff] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700">
-        {/* Hero */}
-        <motion.section
+        {/* Hero Section */}
+<motion.section
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 1 }}
@@ -160,70 +160,62 @@ export default function Home() {
   />
 
   {/* Name with Gradient */}
- <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 whitespace-nowrap">
-  Hrishika&nbsp;Verma
-</h1>
+  <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 text-center">
+    Hrishika&nbsp;Verma
+  </h1>
 
-
-
-  {/* Typewriter-style Role Text */}
-  <p className="text-lg sm:text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 whitespace-normal break-words">
-  Full Stack Developer | MERN Stack | MCA Student
-</p>
-
+  {/* Role / Tagline */}
+  {/* Mobile → normal text, Desktop → typewriter effect */}
+  <p className="hidden sm:block text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-300 mb-5 animate-typing border-r-2 pr-2 text-center leading-snug">
+    Full Stack Developer | MERN Stack | MCA Student
+  </p>
+  <p className="block sm:hidden text-base font-semibold text-gray-700 dark:text-gray-300 mb-5 text-center leading-snug break-words">
+    Full Stack Developer | MERN Stack | MCA Student
+  </p>
 
   {/* Contact & Social Section */}
-<div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
- 
+  <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
+    {/* Email */}
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-purple-300 dark:hover:shadow-purple-800 transition duration-300 group cursor-pointer"
+      title="Email me"
+      onClick={() => window.open("mailto:hrishika.verma.mca2025@gmail.com")}
+    >
+      <FaEnvelope className="text-purple-600 group-hover:animate-pulse" />
+      <span className="text-gray-800 dark:text-gray-300 font-medium">
+        hrishika.verma.mca2025@gmail.com
+      </span>
+    </motion.div>
 
-  {/* <motion.div
-    whileHover={{ scale: 1.05 }}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-300 dark:hover:shadow-blue-800 transition duration-300 group cursor-pointer"
-    title="Call me"
-  >
-    <FaPhone className="text-blue-600 group-hover:animate-pulse" />
-    <span className="text-gray-800 dark:text-gray-300 font-medium">+91 9131335013</span>
-  </motion.div> */}
+    {/* GitHub */}
+    <motion.a
+      whileHover={{ scale: 1.05 }}
+      href="https://github.com/hrishikaverma/"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="GitHub Profile"
+      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-gray-300 dark:hover:shadow-gray-800 transition duration-300 group"
+    >
+      <FaGithub className="text-gray-700 dark:text-gray-300 group-hover:text-black" />
+      <span className="text-gray-800 dark:text-gray-300 font-medium">GitHub</span>
+    </motion.a>
 
-  {/* Email */}
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-purple-300 dark:hover:shadow-purple-800 transition duration-300 group cursor-pointer"
-    title="Email me"
-    onClick={() => window.open("mailto:hrishika.verma.mca2025@gmail.com")}
-  >
-    <FaEnvelope className="text-purple-600 group-hover:animate-pulse" />
-    <span className="text-gray-800 dark:text-gray-300 font-medium">hrishika.verma.mca2025@gmail.com</span>
-  </motion.div>
+    {/* LinkedIn */}
+    <motion.a
+      whileHover={{ scale: 1.05 }}
+      href="https://www.linkedin.com/in/hrishika9131335013/"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Connect on LinkedIn"
+      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-400 dark:hover:shadow-blue-700 transition duration-300 group"
+    >
+      <FaLinkedin className="text-blue-700 dark:text-blue-400 group-hover:text-blue-900" />
+      <span className="text-gray-800 dark:text-gray-300 font-medium">LinkedIn</span>
+    </motion.a>
+  </div>
 
-  {/* GitHub */}
-  <motion.a
-    whileHover={{ scale: 1.05 }}
-    href="https://github.com/hrishikaverma/"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="GitHub Profile"
-    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-gray-300 dark:hover:shadow-gray-800 transition duration-300 group"
-  >
-    <FaGithub className="text-gray-700 dark:text-gray-300 group-hover:text-black" />
-    <span className="text-gray-800 dark:text-gray-300 font-medium">GitHub</span>
-  </motion.a>
-
-  {/* LinkedIn */}
-  <motion.a
-    whileHover={{ scale: 1.05 }}
-    href="https://www.linkedin.com/in/hrishika9131335013/"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="Connect on LinkedIn"
-    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-400 dark:hover:shadow-blue-700 transition duration-300 group"
-  >
-    <FaLinkedin className="text-blue-700 dark:text-blue-400 group-hover:text-blue-900" />
-    <span className="text-gray-800 dark:text-gray-300 font-medium">LinkedIn</span>
-  </motion.a>
-</div>
-
-  {/* Custom Button */}
+  {/* Download Resume Button */}
   <button
     onClick={() => window.open('/resume.pdf')}
     className="mt-4 px-6 py-2 text-white font-medium rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg border border-transparent hover:from-purple-500 hover:to-blue-600 transition-all duration-300 animate-fade-in"
