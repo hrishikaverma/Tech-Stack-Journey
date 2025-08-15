@@ -173,15 +173,16 @@ export default function Home() {
 
   {/* Contact & Social Section */}
 <div className="flex flex-wrap justify-center gap-6 text-sm mb-8">
-  {/* Phone */}
-  <motion.div
+ 
+
+  {/* <motion.div
     whileHover={{ scale: 1.05 }}
     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 shadow-md backdrop-blur-md hover:shadow-blue-300 dark:hover:shadow-blue-800 transition duration-300 group cursor-pointer"
     title="Call me"
   >
     <FaPhone className="text-blue-600 group-hover:animate-pulse" />
     <span className="text-gray-800 dark:text-gray-300 font-medium">+91 9131335013</span>
-  </motion.div>
+  </motion.div> */}
 
   {/* Email */}
   <motion.div
