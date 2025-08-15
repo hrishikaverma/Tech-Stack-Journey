@@ -82,8 +82,9 @@ export default function Contact() {
               Contact Me
             </h1>
             <p className="mt-2 text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-              I'd love to hear from you. Fill out the form below to get started.
-            </p>
+  I&apos;d love to hear from you. Fill out the form below to get started.
+</p>
+
           </motion.div>
 
           {submitted && (
